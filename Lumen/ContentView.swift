@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct ContentView: View {
     
@@ -15,7 +16,16 @@ struct ContentView: View {
         switch session {
         case .idle:
             Button("Start") {
-                session = .running(end: Date.now.addingTimeInterval(25 * 60))
+                Task {
+                    let end = Date.now.addingTimeInterval(25 * 60)
+                    do {
+                        let granted = try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound])
+                        if granted {
+                            try await scheduleNotification(at: end)
+                        }
+                    } catch { }
+                    session = .running(end: end)
+                }
             }
         case .running(let end):
             TimelineView(.periodic(from: .now, by: 1)) { context in
@@ -26,6 +36,21 @@ struct ContentView: View {
                     .monospacedDigit()
             }
         }
+    }
+    
+    private func scheduleNotification(at end: Date) async throws {
+        let content = UNMutableNotificationContent()
+        content.title = "Session ended"
+        content.body = "The focus session is over."
+        content.sound = .default
+        
+        let components = Calendar.current.dateComponents(
+            [.year, .month, .day, .hour, .minute, .second],
+            from: end
+        )
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+        let request = UNNotificationRequest(identifier: "session", content: content, trigger: trigger)
+        try await UNUserNotificationCenter.current().add(request)
     }
 }
 
