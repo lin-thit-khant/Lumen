@@ -7,6 +7,8 @@
 
 import SwiftUI
 import UserNotifications
+import WidgetKit
+import ActivityKit
 
 struct ContentView: View {
     
@@ -25,6 +27,9 @@ struct ContentView: View {
                         }
                     } catch { }
                     session = .running(end: end)
+                    SessionStore.save(end: end)
+                    WidgetCenter.shared.reloadAllTimelines()
+                    await startLiveActivity(end: end)
                 }
             }
         case .running(let end):
@@ -51,6 +56,16 @@ struct ContentView: View {
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
         let request = UNNotificationRequest(identifier: "session", content: content, trigger: trigger)
         try await UNUserNotificationCenter.current().add(request)
+    }
+    
+    private func startLiveActivity(end: Date) async {
+        guard ActivityAuthorizationInfo().areActivitiesEnabled else { return }
+        for activity in Activity<SessionAttributes>.activities {
+            await activity.end(nil, dismissalPolicy: .immediate)
+        }
+        let attributes = SessionAttributes(end: end)
+        let content = ActivityContent(state: SessionAttributes.ContentState(), staleDate: end)
+        _ = try? Activity.request(attributes: attributes, content: content)
     }
 }
 

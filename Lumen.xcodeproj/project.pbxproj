@@ -6,14 +6,75 @@
 	objectVersion = 110;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F97D6383308C9BBA00CDA690 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97D6382308C9BBA00CDA690 /* WidgetKit.framework */; };
+		F97D6385308C9BBA00CDA690 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97D6384308C9BBA00CDA690 /* SwiftUI.framework */; };
+		F97D6390308C9BBB00CDA690 /* LumenWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F97D6380308C9BB900CDA690 /* LumenWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F97D638E308C9BBB00CDA690 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F97D6363308A53BA00CDA690 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F97D637F308C9BB900CDA690;
+			remoteInfo = LumenWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F97D6395308C9BBB00CDA690 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = "";
+			dstSubfolder = PlugIns;
+			files = (
+				F97D6390308C9BBB00CDA690 /* LumenWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		F97D636B308A53BA00CDA690 /* Lumen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lumen.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F97D6380308C9BB900CDA690 /* LumenWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LumenWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F97D6382308C9BBA00CDA690 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		F97D6384308C9BBA00CDA690 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		F97D6397308DF6A500CDA690 /* LumenWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LumenWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F97D6391308C9BBB00CDA690 /* Exceptions for "LumenWidget" folder in "LumenWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = F97D637F308C9BB900CDA690 /* LumenWidgetExtension */;
+		};
+		F97D639C308DF6E700CDA690 /* Exceptions for "Lumen" folder in "LumenWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				SessionAttributes.swift,
+				SessionStore.swift,
+			);
+			target = F97D637F308C9BB900CDA690 /* LumenWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F97D636D308A53BA00CDA690 /* Lumen */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F97D639C308DF6E700CDA690 /* Exceptions for "Lumen" folder in "LumenWidgetExtension" target */,
+			);
 			path = Lumen;
+			sourceTree = "<group>";
+		};
+		F97D6386308C9BBA00CDA690 /* LumenWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F97D6391308C9BBB00CDA690 /* Exceptions for "LumenWidget" folder in "LumenWidgetExtension" target */,
+			);
+			path = LumenWidget;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -24,13 +85,23 @@
 			files = (
 			);
 		};
+		F97D637D308C9BB900CDA690 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+				F97D6385308C9BBA00CDA690 /* SwiftUI.framework in Frameworks */,
+				F97D6383308C9BBA00CDA690 /* WidgetKit.framework in Frameworks */,
+			);
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		F97D6362308A53BA00CDA690 = {
 			isa = PBXGroup;
 			children = (
+				F97D6397308DF6A500CDA690 /* LumenWidgetExtension.entitlements */,
 				F97D636D308A53BA00CDA690 /* Lumen */,
+				F97D6386308C9BBA00CDA690 /* LumenWidget */,
+				F97D6381308C9BBA00CDA690 /* Frameworks */,
 				F97D636C308A53BA00CDA690 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -39,8 +110,18 @@
 			isa = PBXGroup;
 			children = (
 				F97D636B308A53BA00CDA690 /* Lumen.app */,
+				F97D6380308C9BB900CDA690 /* LumenWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F97D6381308C9BBA00CDA690 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F97D6382308C9BBA00CDA690 /* WidgetKit.framework */,
+				F97D6384308C9BBA00CDA690 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -53,8 +134,12 @@
 				F97D6367308A53BA00CDA690 /* Sources */,
 				F97D6368308A53BA00CDA690 /* Frameworks */,
 				F97D6369308A53BA00CDA690 /* Resources */,
+				F97D6395308C9BBB00CDA690 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
+			);
+			dependencies = (
+				F97D638F308C9BBB00CDA690 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				F97D636D308A53BA00CDA690 /* Lumen */,
@@ -63,6 +148,24 @@
 			productName = Lumen;
 			productReference = F97D636B308A53BA00CDA690 /* Lumen.app */;
 			productType = "com.apple.product-type.application";
+		};
+		F97D637F308C9BB900CDA690 /* LumenWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F97D6392308C9BBB00CDA690 /* Build configuration list for PBXNativeTarget "LumenWidgetExtension" */;
+			buildPhases = (
+				F97D637C308C9BB900CDA690 /* Sources */,
+				F97D637D308C9BB900CDA690 /* Frameworks */,
+				F97D637E308C9BB900CDA690 /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				F97D6386308C9BBA00CDA690 /* LumenWidget */,
+			);
+			name = LumenWidgetExtension;
+			productName = LumenWidgetExtension;
+			productReference = F97D6380308C9BB900CDA690 /* LumenWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -75,6 +178,9 @@
 				LastUpgradeCheck = 2700;
 				TargetAttributes = {
 					F97D636A308A53BA00CDA690 = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					F97D637F308C9BB900CDA690 = {
 						CreatedOnToolsVersion = 27.0;
 					};
 				};
@@ -94,12 +200,18 @@
 			projectRoot = "";
 			targets = (
 				F97D636A308A53BA00CDA690 /* Lumen */,
+				F97D637F308C9BB900CDA690 /* LumenWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F97D6369308A53BA00CDA690 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		F97D637E308C9BB900CDA690 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
 			);
@@ -112,7 +224,20 @@
 			files = (
 			);
 		};
+		F97D637C308C9BB900CDA690 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F97D638F308C9BBB00CDA690 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F97D637F308C9BB900CDA690 /* LumenWidgetExtension */;
+			targetProxy = F97D638E308C9BBB00CDA690 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		F97D6374308A53BB00CDA690 /* Debug configuration for PBXProject "Lumen" */ = {
@@ -168,7 +293,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -226,7 +351,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -241,17 +366,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Lumen/Lumen.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 92FTD89LAM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -259,12 +386,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.khant.linthit.Lumen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -274,17 +402,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Lumen/Lumen.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 92FTD89LAM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -292,12 +422,79 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.khant.linthit.Lumen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F97D6393308C9BBB00CDA690 /* Debug configuration for PBXNativeTarget "LumenWidgetExtension" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = LumenWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 92FTD89LAM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LumenWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LumenWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.khant.linthit.Lumen.LumenWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F97D6394308C9BBB00CDA690 /* Release configuration for PBXNativeTarget "LumenWidgetExtension" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = LumenWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 92FTD89LAM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LumenWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LumenWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.khant.linthit.Lumen.LumenWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -318,6 +515,14 @@
 			buildConfigurations = (
 				F97D6377308A53BB00CDA690 /* Debug configuration for PBXNativeTarget "Lumen" */,
 				F97D6378308A53BB00CDA690 /* Release configuration for PBXNativeTarget "Lumen" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		F97D6392308C9BBB00CDA690 /* Build configuration list for PBXNativeTarget "LumenWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F97D6393308C9BBB00CDA690 /* Debug configuration for PBXNativeTarget "LumenWidgetExtension" */,
+				F97D6394308C9BBB00CDA690 /* Release configuration for PBXNativeTarget "LumenWidgetExtension" */,
 			);
 			defaultConfigurationName = Release;
 		};
